@@ -6,7 +6,9 @@ This document provides step-by-step instructions for setting up test automation 
 
 - [Creating an Account on testRigor](#creating-an-account-on-testrigor)
 - [Creating a Test Suite](#creating-a-test-suite)
-- [Running Tests with the CLI](#running-tests-with-the-cli)
+- [Running Tests with the CLI Locally](#running-tests-with-the-cli-locally)
+- [Running Tests with the CLI (Non-Local Environment)](#running-tests-with-the-cli-non-local-environment)
+- [Additional Resources](#additional-resources)
 
 ## Creating an Account on testRigor
 
@@ -42,7 +44,7 @@ This document provides step-by-step instructions for setting up test automation 
 3. **Click on "Create Test Suite":**
    - Once all the details are filled in, click the "Create Test Suite" button to save and finalize your new test suite.
 
-## Running Tests with the CLI locally
+## Running Tests with the CLI Locally
 
 1. **Install testRigor CLI:**
    - Ensure you have Node.js installed on your machine (version 18 or higher).
@@ -70,7 +72,6 @@ This document provides step-by-step instructions for setting up test automation 
 4. **View Test Results:**
    - After running the tests, you can view the results in the testRigor dashboard under the "Test Cases" section.
 
-
 ## Running Tests with the CLI (Non-Local Environment)
 
 1. **Install testRigor CLI:**
@@ -97,7 +98,6 @@ This document provides step-by-step instructions for setting up test automation 
 
 4. **View Test Results:**
    - After running the tests, you can view the results in the testRigor dashboard under the "Test Cases" section.
-
 
 ## Additional Resources
 
