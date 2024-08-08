@@ -42,7 +42,7 @@ This document provides step-by-step instructions for setting up test automation 
 3. **Click on "Create Test Suite":**
    - Once all the details are filled in, click the "Create Test Suite" button to save and finalize your new test suite.
 
-## Running Tests with the CLI
+## Running Tests with the CLI locally
 
 1. **Install testRigor CLI:**
    - Ensure you have Node.js installed on your machine (version 18 or higher).
@@ -69,6 +69,35 @@ This document provides step-by-step instructions for setting up test automation 
 
 4. **View Test Results:**
    - After running the tests, you can view the results in the testRigor dashboard under the "Test Cases" section.
+
+
+## Running Tests with the CLI (Non-Local Environment)
+
+1. **Install testRigor CLI:**
+   - Ensure you have Node.js installed on your machine (version 18 or higher).
+   - Install the testRigor CLI globally using npm:
+     ```bash
+     npm install -g testrigor
+     ```
+
+2. **Obtain Required Parameters:**
+   - **Test Suite ID:** You can find the Test Suite ID in the URL of your test suite on the testRigor dashboard. It is located immediately after "https://app.testrigor.com/test-suites/". For example, if the URL is `https://app.testrigor.com/test-suites/12345`, then `12345` is your Test Suite ID.
+   - **Auth Token:** Obtain your token from the "CI/CD integration" section on the testRigor dashboard. Look for "auth-token" and copy the value next to it, which will be in the format `########-####-####-####-############`.
+   - **Remote URL:** This is the URL where your OpenEMR instance or the application under test is hosted. Ensure this URL is accessible over the internet. For example, it could be something like `https://yourapp.com` or `http://yourapp.com:8080`.
+
+3. **Run Tests:**
+   - Use the following command to execute your tests:
+     ```bash
+     testrigor test-suite run <test-suite-id> --token <token> --url <remote-url>
+     ```
+   - Replace the placeholders with your actual parameters:
+     - `<test-suite-id>` with the Test Suite ID you obtained.
+     - `<token>` with your auth token.
+     - `<remote-url>` with the URL where your OpenEMR or application is hosted remotely (e.g., `https://yourapp.com` or `http://yourapp.com:8080`).
+
+4. **View Test Results:**
+   - After running the tests, you can view the results in the testRigor dashboard under the "Test Cases" section.
+
 
 ## Additional Resources
 
