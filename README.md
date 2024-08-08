@@ -35,7 +35,7 @@ This document provides step-by-step instructions for setting up test automation 
 2. **Create a new test suite:**
    - **Enter a name for the test suite:** Provide a meaningful name for your test suite.
    - **Select the type of testing:** Choose "Desktop Web Testing" from the "Type of Testing" dropdown menu.
-   - **Enter the URL:** Input a placeholder URL such as "https://www.google.com". This URL will be overwritten with your local URL settings during actual test runs.
+   - **Enter the URL:** Input a placeholder URL such as "https://www.google.com". This URL will be overwritten with your URL settings during actual test runs.
    - **Fill in the login credentials:** 
      - **Username:** Enter "admin".
      - **Password:** Enter "pass".
