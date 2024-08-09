@@ -28,6 +28,10 @@ This document provides step-by-step instructions for setting up test automation 
 
 ## Setting Up testRigor Tunneling
 
+testRigor provides a testRigor tunneling client (trtc) application, that can be installed in your internal network to provide a tunnel for testRigor cloud test servers to be able to access your systems under test. The setup is secure because you control the access that the machine has in the network.
+
+Once the tunneling client starts, it immediately connects to the testRigor tunneling servers to create a tunnel. And once established, testRigor cloud testing servers can access the system under test through that tunnel. It is advised that the tunnel is only given access to the resources it needs access to in order to execute the test (usually a set of web servers).
+
 1. **Download testRigor tunneling client application:**
    - Download the testRigor tunneling client for your Operating System and extract the archive content to any folder:
      - Windows: x86_64: [download](https://testrigor-storage.s3.amazonaws.com/tunneling-client/2.3.15/trtc_2.3.15_windows_amd64.zip)
