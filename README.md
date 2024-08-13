@@ -5,7 +5,6 @@ This document provides step-by-step instructions for setting up test automation 
 ## Table of Contents
 
 - [Creating an Account on testRigor](#creating-an-account-on-testrigor)
-- [Setting Up testRigor Tunneling](#setting-up-testrigor-tunneling)
 - [Running Tests with the CLI](#running-tests-with-the-cli)
 - [Additional Resources](#additional-resources)
 
@@ -26,46 +25,8 @@ This document provides step-by-step instructions for setting up test automation 
 4. **Log in to your account:**
    - Once your account is activated, log in using your email and password.
 
-## Setting Up testRigor Tunneling
-
-testRigor provides a testRigor tunneling client (trtc) application, that can be installed in your internal network to provide a tunnel for testRigor cloud test servers to be able to access your systems under test. The setup is secure because you control the access that the machine has in the network.
-
-Once the tunneling client starts, it immediately connects to the testRigor tunneling servers to create a tunnel. And once established, testRigor cloud testing servers can access the system under test through that tunnel. It is advised that the tunnel is only given access to the resources it needs access to in order to execute the test (usually a set of web servers).
-
-1. **Download testRigor tunneling client application:**
-   - Download the testRigor tunneling client for your Operating System and extract the archive content to any folder:
-     - Windows: x86_64: [download](https://testrigor-storage.s3.amazonaws.com/tunneling-client/2.3.15/trtc_2.3.15_windows_amd64.zip)
-     - Linux, x86_64: [download](https://testrigor-storage.s3.amazonaws.com/tunneling-client/2.3.15/trtc_2.3.15_linux_amd64.tar.gz)
-     - macOS, Intel x86_64: [download](https://testrigor-storage.s3.amazonaws.com/tunneling-client/2.3.15/trtc_2.3.15_darwin_amd64.tar.gz)
-     - macOS, Apple Silicon (M1-) arm64: [download](https://testrigor-storage.s3.amazonaws.com/tunneling-client/2.3.15/trtc_2.3.15_darwin_arm64.tar.gz)
-   - There can be a false positive alarm from antivirus, and then you need to add the `trtc` executable file to antivirus exceptions.
-
-2. **Setting up testRigor tunneling client configuration:**
-   - Edit the `config.toml` file and replace the `XXXX` with a port number assigned by a testRigor representative.
-     ```toml
-     [[proxies]]
-     name = "http_proxy_XXXX"
-     type = "tcp"
-     remotePort = XXXX
-     
-     [proxies.plugin]
-     type = "http_proxy"
-     ```
-
-3. **Run tunneling client:**
-   - To establish a tunnel to the testRigor cloud, run the `trtc` executable file. You should see the following messages in the console:
-     ```
-     2019-06-24 10:00:23.065 [I] [sub/root.go:109] start trtc service for config file [./config.toml]
-     2019-06-24 10:00:23.085 [I] [client/service.go:294] try to connect to server...
-     2019-06-24 10:00:23.801 [I] [client/service.go:286] [a8f97fc5870d6f22] login to server success, get run id [a8f97fc5870d6f22]
-     2019-06-24 10:00:23.802 [I] [proxy/proxy_manager.go:173] [a8f97fc5870d6f22] proxy added: [http_proxy_XXXX]
-     2019-06-24 10:00:24.070 [I] [client/control.go:168] [a8f97fc5870d6f22] [http_proxy_XXXX] start proxy success
-     ```
-
-4. **Setting up your test suite on app.testrigor.com:**
-   - Go to the proxy settings of your test suite and enter the following string in the HTTP and HTTPS proxy settings: `tunnel.testrigor.com:XXXX`. Again, replace `XXXX` with a port number assigned by a testRigor representative. E.g.:
-
-   Now you should be able to test your application using your internal network address using either IP or domain name. Also, you will be able to use any local names/addresses of your computer other than `localhost` or `127.0.0.1`.
+5. **Create a test sute:**
+   - Once you are using your account, create a test suite.
 
 ## Running Tests with the CLI
 
@@ -80,18 +41,19 @@ Once the tunneling client starts, it immediately connects to the testRigor tunne
    - **Test Suite ID:** You can find the Test Suite ID in the URL of your test suite on the testRigor dashboard. It is located immediately after "https://app.testrigor.com/test-suites/". For example, if the URL is `https://app.testrigor.com/test-suites/12345`, then `12345` is your Test Suite ID.
    - **Auth Token:** Obtain your token from the "CI/CD integration" section on the testRigor dashboard. Look for "auth-token" and copy the value next to it, which will be in the format `########-####-####-####-############`.
 
-3. **Run Tests:**
-   - Use the following command to execute your tests:
-     ```bash
-     testrigor test-suite run <test-suite-id> --token <token> --localhost --url <localhost-url>
-     ```
-   - Replace the placeholders with your actual parameters:
-     - `<test-suite-id>` with the Test Suite ID you obtained.
-     - `<token>` with your auth token.
-     - `<localhost-url>` with the URL where OpenEMR is running locally (e.g., `http://127.0.0.1:8080` or `http://localhost:1234`).
+3. **Set Parameters in `run_testrigor_tests`:**
+   - Before running the tests, open the `run_testrigor_tests` script file and set the following variables with the parameters you obtained:
+     - `TEST_SUITE_ID`: Set this variable to your Test Suite ID.
+     - `AUTH_TOKEN`: Set this variable to your auth token.
+     - `LOCALHOST_URL`: Set this variable to the URL where OpenEMR is running locally.
 
-4. **View Test Results:**
-   - After running the tests, you can view the results in the testRigor dashboard under the "Test Cases" section.
+4. **Run Tests:**
+     ```bash
+     ./run_testrigor_tests
+     ```
+
+5. **View Test Results:**
+   - You can view the results in the testRigor dashboard by clicking the link shown in the terminal.
 
 ## Additional Resources
 
