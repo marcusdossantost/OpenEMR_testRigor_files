@@ -23,7 +23,7 @@ This document provides step-by-step instructions for setting up test automation 
    - Click on the verification link to activate your account.
 
 4. **Log in to your account:**
-   - Once your account is activated, log in using your email and password.
+   - Once your account is activated, log in.
 
 5. **Create a test sute:**
    - Once you are using your account, create a test suite.
@@ -38,8 +38,8 @@ This document provides step-by-step instructions for setting up test automation 
      ```
 
 2. **Obtain Required Parameters:**
-   - **Test Suite ID:** You can find the Test Suite ID in the URL of your test suite on the testRigor dashboard. It is located immediately after "https://app.testrigor.com/test-suites/". For example, if the URL is `https://app.testrigor.com/test-suites/12345`, then `12345` is your Test Suite ID.
-   - **Auth Token:** Obtain your token from the "CI/CD integration" section on the testRigor dashboard. Look for "auth-token" and copy the value next to it, which will be in the format `########-####-####-####-############`.
+   - **Test Suite ID:** You can find the Test Suite ID in the URL of your test suite. If the URL is `https://app.testrigor.com/test-suites/12345`, then `12345` is your Test Suite ID.
+   - **Auth Token:** Obtain your token from the "CI/CD integration" section on testRigor. Look for "auth-token" and copy the value next to it, which will be in the format `########-####-####-####-############`.
 
 3. **Set Parameters in `run_testrigor_tests`:**
    - Before running the tests, open the `run_testrigor_tests` script file and set the following variables with the parameters you obtained:
@@ -53,7 +53,7 @@ This document provides step-by-step instructions for setting up test automation 
      ```
 
 5. **View Test Results:**
-   - You can view the results in the testRigor dashboard by clicking the link shown in the terminal.
+   - You can view the results on testRigor by clicking the link shown in the terminal.
 
 ## Additional Resources
 
