@@ -16,17 +16,15 @@ This document provides step-by-step instructions for setting up test automation 
 2. **Sign up for a new account:**
    - Click on the "Sign Up" button on the top right corner.
    - Choose the "Public Open Source" version.
-   - Fill in the required details (name, email, password) and follow the instructions to complete the registration.
+   - Fill in the required details and follow the instructions to complete the registration.
 
-3. **Verify your email:**
+3. **Verify your email and log in:**
    - Check your email inbox for a verification email from testRigor.
    - Click on the verification link to activate your account.
-
-4. **Log in to your account:**
    - Once your account is activated, log in.
 
-5. **Create a test sute:**
-   - Once you are using your account, create a test suite.
+4. **Create a test sute:**
+   - After logging into your account, create a test suite.
 
 ## Running Tests with the CLI
 
@@ -38,22 +36,22 @@ This document provides step-by-step instructions for setting up test automation 
      ```
 
 2. **Obtain Required Parameters:**
-   - **Test Suite ID:** You can find the Test Suite ID in the URL of your test suite. If the URL is `https://app.testrigor.com/test-suites/12345`, then `12345` is your Test Suite ID.
-   - **Auth Token:** Obtain your token from the "CI/CD integration" section on testRigor. Look for "auth-token" and copy the value next to it, which will be in the format `########-####-####-####-############`.
+   - **Test Suite ID:** You can obtain the Test Suite ID in the URL of your test suite. If the URL is `https://app.testrigor.com/test-suites/12345`, then `12345` is your Test Suite ID.
+   - **Auth Token:** You can obtain your token from the "CI/CD integration" section on testRigor. Look for "auth-token" and copy the value next to it, which will be in the format `########-####-####-####-############`.
 
-3. **Set Parameters in `run_testrigor_tests`:**
-   - Before running the tests, open the `run_testrigor_tests` script file and set the following variables with the parameters you obtained:
+3. **Set Parameters in `run_testrigor_tests.sh`:**
+   - Before running the tests, open the `run_testrigor_tests.sh` script file and set the following variables with the parameters you obtained:
      - `TEST_SUITE_ID`: Set this variable to your Test Suite ID.
      - `AUTH_TOKEN`: Set this variable to your auth token.
      - `LOCALHOST_URL`: Set this variable to the URL where OpenEMR is running locally.
 
 4. **Run Tests:**
      ```bash
-     ./run_testrigor_tests
+     ./run_testrigor_tests.sh
      ```
 
 5. **View Test Results:**
-   - You can view the results on testRigor by clicking the link shown in the terminal.
+   - You can view the results on testRigor by opening the link shown in the terminal.
 
 ## Additional Resources
 
