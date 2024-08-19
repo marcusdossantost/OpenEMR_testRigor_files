@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define suite ID and auth token
-TEST_SUITE_ID="d6qQGsxnE32fbQrka"
-AUTH_TOKEN="f84d2dfe-df5a-4481-b6c7-67c076af48a8"
+TEST_SUITE_ID=""
+AUTH_TOKEN=""
 
 # Paths for the test cases and rules files
 TEST_CASES_PATH="./test_cases/**/*.txt"
